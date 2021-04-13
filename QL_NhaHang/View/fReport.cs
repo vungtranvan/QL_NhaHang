@@ -47,11 +47,11 @@ namespace QL_NhaHang.View
             Hepler.ExportToExcel(dtgvReport);
         }
 
-        private void btnExportToPDF_Click(object sender, EventArgs e)
+        private void btnExport_Click(object sender, EventArgs e)
         {
             if (dtgvReport.CurrentRow != null)
             {
-                //Hepler.ExportToPDF(dtgvReport);
+               // Hepler.ExportToPDF(dtgvReport);
                 fReportToPrint f = new fReportToPrint();
                 f.ReportViewName = "Bill";
                 f.Checkin = dateFrom.Value;

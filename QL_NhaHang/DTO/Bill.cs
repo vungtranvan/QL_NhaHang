@@ -10,8 +10,8 @@ namespace QL_NhaHang.DTO
     public class Bill
     {
         public int Id { get; set; }
-        public DateTime? DateCheckIn { get; set; }
-        public DateTime? DateCheckOut { get; set; }
+        public DateTime DateCheckIn { get; set; }
+        public DateTime DateCheckOut { get; set; }
         public string TableName { get; set; }
         public int QuantityTable { get; set; }
         public int Discount { get; set; }
@@ -20,7 +20,7 @@ namespace QL_NhaHang.DTO
 
         public Bill() { }
 
-        public Bill(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, string tableName, int quantityTable, int discount, float totalPrice, int status)
+        public Bill(int id, DateTime dateCheckIn, DateTime dateCheckOut, string tableName, int quantityTable, int discount, float totalPrice, int status)
         {
             Id = id;
             DateCheckIn = dateCheckIn;
@@ -34,10 +34,10 @@ namespace QL_NhaHang.DTO
         public Bill(DataRow row)
         {
             Id = (int)row["Id"];
-            DateCheckIn = (DateTime?)row["DateCheckIn"];
+            DateCheckIn = (DateTime)row["DateCheckIn"];
 
             var DateCheckOutTemp = row["DateCheckOut"];
-            if (DateCheckOutTemp.ToString() != "") { DateCheckOut = (DateTime?)DateCheckOutTemp; }
+            if (DateCheckOutTemp.ToString() != "") { DateCheckOut = (DateTime)DateCheckOutTemp; }
             TableName = row["TableName"].ToString();
             QuantityTable = (int)row["QuantityTable"];
             if (row["Discount"].ToString() != "")

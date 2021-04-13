@@ -32,7 +32,7 @@ namespace QL_NhaHang.View
             {
                 case "Bill":
                     data = BillDAO.Instance.GetListBillByDate(Checkin, Checkout);
-                    CrystalReportBill crystalReportBill = new CrystalReportBill();
+                    CryReportBill crystalReportBill = new CryReportBill();
                     crystalReportBill.SetDataSource(data);
                     reportViewer.ReportSource = crystalReportBill;
                     reportViewer.Show();

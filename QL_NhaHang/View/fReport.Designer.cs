@@ -29,9 +29,9 @@ namespace QL_NhaHang.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReport));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvReport = new System.Windows.Forms.DataGridView();
@@ -114,8 +114,8 @@ namespace QL_NhaHang.View
             // Column4
             // 
             this.Column4.DataPropertyName = "DateCheckIn";
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy HH:mm";
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy HH:mm";
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column4.HeaderText = "Ngày vào";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -123,8 +123,8 @@ namespace QL_NhaHang.View
             // Column5
             // 
             this.Column5.DataPropertyName = "DateCheckOut";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy HH:mm";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.HeaderText = "Ngày ra";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -139,8 +139,8 @@ namespace QL_NhaHang.View
             // Column7
             // 
             this.Column7.DataPropertyName = "TotalPrice";
-            dataGridViewCellStyle3.Format = "N0";
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "N0";
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column7.HeaderText = "Tổng Tiền";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -177,7 +177,7 @@ namespace QL_NhaHang.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(240, 30);
+            this.label1.Location = new System.Drawing.Point(237, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 6;
@@ -189,7 +189,7 @@ namespace QL_NhaHang.View
             this.dateTo.CustomFormat = "dd/MM/yyyy";
             this.dateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTo.Location = new System.Drawing.Point(307, 27);
+            this.dateTo.Location = new System.Drawing.Point(304, 27);
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(155, 21);
             this.dateTo.TabIndex = 7;
@@ -199,7 +199,7 @@ namespace QL_NhaHang.View
             this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(478, 20);
+            this.btnReport.Location = new System.Drawing.Point(469, 20);
             this.btnReport.Name = "btnReport";
             this.btnReport.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReport.Size = new System.Drawing.Size(106, 33);
@@ -212,7 +212,7 @@ namespace QL_NhaHang.View
             // 
             this.btnViewBillInfo.Image = global::QL_NhaHang.Properties.Resources.view_16px;
             this.btnViewBillInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewBillInfo.Location = new System.Drawing.Point(707, 20);
+            this.btnViewBillInfo.Location = new System.Drawing.Point(697, 20);
             this.btnViewBillInfo.Name = "btnViewBillInfo";
             this.btnViewBillInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnViewBillInfo.Size = new System.Drawing.Size(102, 33);
@@ -225,7 +225,7 @@ namespace QL_NhaHang.View
             // 
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReset.Location = new System.Drawing.Point(594, 20);
+            this.btnReset.Location = new System.Drawing.Point(585, 20);
             this.btnReset.Name = "btnReset";
             this.btnReset.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnReset.Size = new System.Drawing.Size(102, 33);
@@ -247,7 +247,7 @@ namespace QL_NhaHang.View
             this.btnExport.TabIndex = 11;
             this.btnExport.Text = "Print";
             this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExportToPDF_Click);
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnExportToExcel
             // 
@@ -255,7 +255,7 @@ namespace QL_NhaHang.View
             this.btnExportToExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportToExcel.Image = global::QL_NhaHang.Properties.Resources.file_excel_16px;
             this.btnExportToExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExportToExcel.Location = new System.Drawing.Point(868, 20);
+            this.btnExportToExcel.Location = new System.Drawing.Point(869, 20);
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnExportToExcel.Size = new System.Drawing.Size(106, 33);
