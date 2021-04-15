@@ -10,24 +10,38 @@ namespace QL_NhaHang.View
         public fLogin()
         {
             InitializeComponent();
+            txtErrPasword.Text = "";
+            txtErrUserName.Text = "";
+        }
+
+        public bool checkInputLogin()
+        {
+            bool checkInput = true;
+
+            checkInput = Hepler.CheckInputNotNull(txtUserName, txtErrUserName, checkInput);
+            checkInput = Hepler.CheckInputNotNull(txtPassword, txtErrPasword, checkInput);
+
+            return checkInput;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = txtUserName.Text;
             string password = txtPassword.Text;
-            if (AccountDAO.Instance.CheckLogin(userName, password))
+            if (checkInputLogin())
             {
-                Account account = AccountDAO.Instance.GetAccountByUserName(userName);
-                fMain f = new fMain(account);
-                this.Hide();
-                f.ShowDialog();
+                if (AccountDAO.Instance.CheckLogin(userName, password))
+                {
+                    Account account = AccountDAO.Instance.GetAccountByUserName(userName);
+                    fMain f = new fMain(account);
+                    this.Hide();
+                    f.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)

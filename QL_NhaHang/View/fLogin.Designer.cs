@@ -45,6 +45,8 @@ namespace QL_NhaHang.View
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtErrUserName = new System.Windows.Forms.Label();
+            this.txtErrPasword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnShowHidePass)).BeginInit();
@@ -202,6 +204,28 @@ namespace QL_NhaHang.View
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // txtErrUserName
+            // 
+            this.txtErrUserName.AutoSize = true;
+            this.txtErrUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtErrUserName.ForeColor = System.Drawing.Color.Red;
+            this.txtErrUserName.Location = new System.Drawing.Point(58, 240);
+            this.txtErrUserName.Name = "txtErrUserName";
+            this.txtErrUserName.Size = new System.Drawing.Size(29, 12);
+            this.txtErrUserName.TabIndex = 12;
+            this.txtErrUserName.Text = "label8";
+            // 
+            // txtErrPasword
+            // 
+            this.txtErrPasword.AutoSize = true;
+            this.txtErrPasword.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtErrPasword.ForeColor = System.Drawing.Color.Red;
+            this.txtErrPasword.Location = new System.Drawing.Point(58, 295);
+            this.txtErrPasword.Name = "txtErrPasword";
+            this.txtErrPasword.Size = new System.Drawing.Size(29, 12);
+            this.txtErrPasword.TabIndex = 12;
+            this.txtErrPasword.Text = "label8";
+            // 
             // fLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -209,6 +233,8 @@ namespace QL_NhaHang.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(292, 447);
+            this.Controls.Add(this.txtErrPasword);
+            this.Controls.Add(this.txtErrUserName);
             this.Controls.Add(this.btnShowHidePass);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.iconClose);
@@ -254,5 +280,7 @@ namespace QL_NhaHang.View
         private System.Windows.Forms.ToolTip toolTipMinimizeLogin;
         private System.Windows.Forms.ToolTip toolTipCloseLogin;
         private System.Windows.Forms.PictureBox btnShowHidePass;
+        private System.Windows.Forms.Label txtErrUserName;
+        private System.Windows.Forms.Label txtErrPasword;
     }
 }
