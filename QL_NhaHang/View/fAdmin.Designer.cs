@@ -335,7 +335,7 @@ namespace QL_NhaHang.View
             this.groupBox2.Location = new System.Drawing.Point(118, 157);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(208, 34);
-            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
             // rdHideFood
@@ -344,7 +344,7 @@ namespace QL_NhaHang.View
             this.rdHideFood.Location = new System.Drawing.Point(109, 9);
             this.rdHideFood.Name = "rdHideFood";
             this.rdHideFood.Size = new System.Drawing.Size(42, 20);
-            this.rdHideFood.TabIndex = 9;
+            this.rdHideFood.TabIndex = 6;
             this.rdHideFood.Text = "Ẩn";
             this.rdHideFood.UseVisualStyleBackColor = true;
             // 
@@ -355,7 +355,7 @@ namespace QL_NhaHang.View
             this.rdShowFood.Location = new System.Drawing.Point(7, 9);
             this.rdShowFood.Name = "rdShowFood";
             this.rdShowFood.Size = new System.Drawing.Size(76, 20);
-            this.rdShowFood.TabIndex = 8;
+            this.rdShowFood.TabIndex = 6;
             this.rdShowFood.TabStop = true;
             this.rdShowFood.Text = "Hiển Thị";
             this.rdShowFood.UseVisualStyleBackColor = true;
@@ -427,6 +427,7 @@ namespace QL_NhaHang.View
             // 
             // cbxLoaiMon
             // 
+            this.cbxLoaiMon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxLoaiMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxLoaiMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLoaiMon.FormattingEnabled = true;
@@ -444,6 +445,7 @@ namespace QL_NhaHang.View
             this.txtMaFood.ReadOnly = true;
             this.txtMaFood.Size = new System.Drawing.Size(231, 28);
             this.txtMaFood.TabIndex = 1;
+            this.txtMaFood.TabStop = false;
             // 
             // txtTenMon
             // 
@@ -577,7 +579,7 @@ namespace QL_NhaHang.View
             this.txtSearchFood.Multiline = true;
             this.txtSearchFood.Name = "txtSearchFood";
             this.txtSearchFood.Size = new System.Drawing.Size(231, 28);
-            this.txtSearchFood.TabIndex = 6;
+            this.txtSearchFood.TabIndex = 11;
             this.txtSearchFood.TextChanged += new System.EventHandler(this.txtSearchFood_TextChanged);
             // 
             // label4
@@ -592,6 +594,7 @@ namespace QL_NhaHang.View
             // 
             // cbxSearchLoaiMon
             // 
+            this.cbxSearchLoaiMon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxSearchLoaiMon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSearchLoaiMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSearchLoaiMon.FormattingEnabled = true;
@@ -599,7 +602,7 @@ namespace QL_NhaHang.View
             this.cbxSearchLoaiMon.Location = new System.Drawing.Point(477, 312);
             this.cbxSearchLoaiMon.Name = "cbxSearchLoaiMon";
             this.cbxSearchLoaiMon.Size = new System.Drawing.Size(208, 28);
-            this.cbxSearchLoaiMon.TabIndex = 2;
+            this.cbxSearchLoaiMon.TabIndex = 12;
             this.cbxSearchLoaiMon.SelectionChangeCommitted += new System.EventHandler(this.cbxSearchLoaiMon_SelectionChangeCommitted);
             // 
             // label11
@@ -731,12 +734,14 @@ namespace QL_NhaHang.View
             // 
             // txtMaFoodCategory
             // 
+            this.txtMaFoodCategory.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaFoodCategory.Location = new System.Drawing.Point(177, 33);
             this.txtMaFoodCategory.Multiline = true;
             this.txtMaFoodCategory.Name = "txtMaFoodCategory";
             this.txtMaFoodCategory.ReadOnly = true;
             this.txtMaFoodCategory.Size = new System.Drawing.Size(231, 28);
             this.txtMaFoodCategory.TabIndex = 1;
+            this.txtMaFoodCategory.TabStop = false;
             // 
             // txtTenFoodCategory
             // 
@@ -1120,6 +1125,7 @@ namespace QL_NhaHang.View
             // 
             // cbTypeAccount
             // 
+            this.cbTypeAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbTypeAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTypeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTypeAccount.FormattingEnabled = true;
@@ -1241,6 +1247,7 @@ namespace QL_NhaHang.View
             // 
             // btnDeleteAccount
             // 
+            this.btnDeleteAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAccount.Image")));
             this.btnDeleteAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteAccount.Location = new System.Drawing.Point(760, 227);
@@ -1254,6 +1261,7 @@ namespace QL_NhaHang.View
             // 
             // btnResetAccount
             // 
+            this.btnResetAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResetAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnResetAccount.Image")));
             this.btnResetAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResetAccount.Location = new System.Drawing.Point(888, 227);
@@ -1267,6 +1275,7 @@ namespace QL_NhaHang.View
             // 
             // btnAddAccount
             // 
+            this.btnAddAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAccount.Image")));
             this.btnAddAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddAccount.Location = new System.Drawing.Point(505, 227);
@@ -1280,6 +1289,7 @@ namespace QL_NhaHang.View
             // 
             // btnEditAccount
             // 
+            this.btnEditAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnEditAccount.Image")));
             this.btnEditAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditAccount.Location = new System.Drawing.Point(631, 227);

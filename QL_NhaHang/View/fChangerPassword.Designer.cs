@@ -177,6 +177,7 @@ namespace QL_NhaHang.View
             // 
             // btnCloseAccount
             // 
+            this.btnCloseAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCloseAccount.Image = global::QL_NhaHang.Properties.Resources.trash_16px;
             this.btnCloseAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloseAccount.Location = new System.Drawing.Point(134, 430);
@@ -190,6 +191,7 @@ namespace QL_NhaHang.View
             // 
             // btnResetAccount
             // 
+            this.btnResetAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResetAccount.Image = global::QL_NhaHang.Properties.Resources.reset_16px;
             this.btnResetAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnResetAccount.Location = new System.Drawing.Point(22, 430);
@@ -203,6 +205,7 @@ namespace QL_NhaHang.View
             // 
             // btnEditAccount
             // 
+            this.btnEditAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditAccount.Image = global::QL_NhaHang.Properties.Resources.edit_16px;
             this.btnEditAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditAccount.Location = new System.Drawing.Point(247, 430);
@@ -216,6 +219,7 @@ namespace QL_NhaHang.View
             // 
             // btnShowHidePassOld
             // 
+            this.btnShowHidePassOld.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowHidePassOld.Image = global::QL_NhaHang.Properties.Resources.eyeShow_32px;
             this.btnShowHidePassOld.Location = new System.Drawing.Point(329, 187);
             this.btnShowHidePassOld.Name = "btnShowHidePassOld";
@@ -228,6 +232,7 @@ namespace QL_NhaHang.View
             // 
             // btnShowHidePassNew
             // 
+            this.btnShowHidePassNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowHidePassNew.Image = global::QL_NhaHang.Properties.Resources.eyeShow_32px;
             this.btnShowHidePassNew.Location = new System.Drawing.Point(329, 265);
             this.btnShowHidePassNew.Name = "btnShowHidePassNew";
@@ -240,6 +245,7 @@ namespace QL_NhaHang.View
             // 
             // btnShowHidePassConfirm
             // 
+            this.btnShowHidePassConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowHidePassConfirm.Image = global::QL_NhaHang.Properties.Resources.eyeShow_32px;
             this.btnShowHidePassConfirm.Location = new System.Drawing.Point(329, 350);
             this.btnShowHidePassConfirm.Name = "btnShowHidePassConfirm";
@@ -252,6 +258,7 @@ namespace QL_NhaHang.View
             // 
             // fChangerPassword
             // 
+            this.AcceptButton = this.btnEditAccount;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 532);

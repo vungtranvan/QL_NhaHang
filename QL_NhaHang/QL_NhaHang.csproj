@@ -96,6 +96,7 @@
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\FoodCategory.cs" />
+    <Compile Include="Event\AccountEvent.cs" />
     <Compile Include="Hepler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +117,12 @@
     </Compile>
     <Compile Include="View\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fChangerInfomationAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fChangerInfomationAcc.Designer.cs">
+      <DependentUpon>fChangerInfomationAcc.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fChangerPassword.cs">
       <SubType>Form</SubType>
@@ -173,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fChangerInfomationAcc.resx">
+      <DependentUpon>fChangerInfomationAcc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\fChangerPassword.resx">
       <DependentUpon>fChangerPassword.cs</DependentUpon>
@@ -342,6 +352,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\default_image.jpg" />
+    <None Include="Resources\registration_32px.png" />
     <None Include="Resources\print_16px.png" />
     <None Include="Resources\checkout_16px.png" />
   </ItemGroup>

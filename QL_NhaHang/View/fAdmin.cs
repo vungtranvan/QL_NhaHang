@@ -1,5 +1,6 @@
 ﻿using QL_NhaHang.DAO;
 using QL_NhaHang.DTO;
+using QL_NhaHang.Event;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -218,7 +219,7 @@ namespace QL_NhaHang.View
         {
             txtUserName.Text = txtErrorUserName.Text = txtDisplayName.Text = txtErrorDisplayName.Text = txtPhone.Text =
             txtErrorPhone.Text = txtAddress.Text = txtErrorAddress.Text = txtPassword.Text = txtErrorPassword.Text =
-            txtConfPassword.Text = txtErrorConfPassword.Text = "";
+            txtConfPassword.Text = txtErrorConfPassword.Text = txtSearchAccount.Text = "";
             rdNam.Checked = true;
             LoadCbxTypeAccount();
             LoadDataAccount("");
@@ -556,7 +557,7 @@ namespace QL_NhaHang.View
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn hàng hoặc nhập UserName để cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn hàng hoặc nhập 'Tên đăng nhập' để cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -662,17 +663,5 @@ namespace QL_NhaHang.View
         #endregion
 
         #endregion
-    }
-
-    public class AccountEvent : EventArgs
-    {
-        private Account acc;
-
-        public Account Acc { get => acc; set => acc = value; }
-
-        public AccountEvent(Account acc)
-        {
-            this.Acc = acc;
-        }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using QL_NhaHang.DTO;
+using QL_NhaHang.Event;
 
 namespace QL_NhaHang.View
 {
@@ -23,14 +24,16 @@ namespace QL_NhaHang.View
             InitializeComponent();
             this.accountLogin = acc;
             ChangerAccountLogin(acc);
-            AbrirFormInPanel(new fHome());
+            AbrirFormInPanel(new fHome(), btnHome);
             this.WindowState = FormWindowState.Maximized;
 
         }
 
         #region Method
-        private void AbrirFormInPanel(object Formhijo)
+        private void AbrirFormInPanel(object Formhijo, Button btn)
         {
+            ChangerColorButtonClickMenuBar(btn);
+
             if (this.panelContentedor.Controls.Count > 0)
                 this.panelContentedor.Controls.RemoveAt(0);
             Form f = Formhijo as Form;
@@ -39,6 +42,18 @@ namespace QL_NhaHang.View
             this.panelContentedor.Controls.Add(f);
             this.panelContentedor.Tag = f;
             f.Show();
+        }
+
+        public void ChangerColorButtonClickMenuBar(Button btn)
+        {
+            foreach (Control item in MenuVetical.Controls)
+            {
+                if (item.GetType() == typeof(Button))
+                {
+                    item.BackColor = Color.FromArgb(0, 117, 214);
+                }
+            }
+            btn.BackColor = Color.FromArgb(45, 45, 48);
         }
 
         private void ChangerAccountLogin(Account acc)
@@ -108,14 +123,14 @@ namespace QL_NhaHang.View
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new fHome());
+            AbrirFormInPanel(new fHome(), btnHome);
         }
 
         private void btnAdminManager_Click(object sender, EventArgs e)
         {
             fAdmin fa = new fAdmin(AccountLogin);
             fa.UpdateAccount += F_UpdateAccount;
-            AbrirFormInPanel(fa);
+            AbrirFormInPanel(fa, btnAdminManager);
         }
 
         private void F_UpdateAccount(object sender, AccountEvent e)
@@ -125,7 +140,7 @@ namespace QL_NhaHang.View
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new fReport());
+            AbrirFormInPanel(new fReport(), btnReport);
         }
 
         private void btnLogo_Click(object sender, EventArgs e)
@@ -166,7 +181,18 @@ namespace QL_NhaHang.View
                 f.ShowDialog();
             }
         }
+        private void btnChangerInfoAcc_Click(object sender, EventArgs e)
+        {
+            fChangerInfomationAcc f = new fChangerInfomationAcc(AccountLogin);
+            f.UpdateAcc += F_UpdateAcc;
+            f.ShowDialog();
+        }
 
+        private void F_UpdateAcc(object sender, AccountEvent e)
+        {
+            txtUserNameAdmin.Text = e.Acc.DisplayName;
+        }
         #endregion
+
     }
 }

@@ -269,7 +269,7 @@ namespace QL_NhaHang.View
             this.txtErrorTenMon.Location = new System.Drawing.Point(451, 111);
             this.txtErrorTenMon.Name = "txtErrorTenMon";
             this.txtErrorTenMon.Size = new System.Drawing.Size(29, 12);
-            this.txtErrorTenMon.TabIndex = 16;
+            this.txtErrorTenMon.TabIndex = 0;
             this.txtErrorTenMon.Text = "label8";
             // 
             // txtErrorTenBan
@@ -280,7 +280,7 @@ namespace QL_NhaHang.View
             this.txtErrorTenBan.Location = new System.Drawing.Point(451, 54);
             this.txtErrorTenBan.Name = "txtErrorTenBan";
             this.txtErrorTenBan.Size = new System.Drawing.Size(29, 12);
-            this.txtErrorTenBan.TabIndex = 16;
+            this.txtErrorTenBan.TabIndex = 0;
             this.txtErrorTenBan.Text = "label8";
             // 
             // pictureFood

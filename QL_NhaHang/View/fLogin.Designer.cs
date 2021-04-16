@@ -164,6 +164,7 @@ namespace QL_NhaHang.View
             // 
             // btnShowHidePass
             // 
+            this.btnShowHidePass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowHidePass.Image = global::QL_NhaHang.Properties.Resources.eyeShow_32px;
             this.btnShowHidePass.Location = new System.Drawing.Point(240, 263);
             this.btnShowHidePass.Name = "btnShowHidePass";
