@@ -318,7 +318,7 @@ namespace QL_NhaHang.View
                             errorDelete += "," + item;
                         }
                     }
-                    Hepler.ShowMessageDelete("mã", successDelete, errorDelete, "Vì đang có hóa đơn");
+                    Hepler.ShowMessageDelete(successDelete, errorDelete, "Vì đang có hóa đơn");
                     ResetFood();
                 }
             }
@@ -362,7 +362,14 @@ namespace QL_NhaHang.View
 
         private void txtSearchFood_TextChanged(object sender, EventArgs e)
         {
-            LoadListFood(txtSearchFood.Text);
+            if ((int)cbxSearchLoaiMon.SelectedValue == 0)
+            {
+                LoadListFood(txtSearchFood.Text);
+            }
+            else
+            {
+                dgvFood.DataSource = FoodDAO.Instance.GetListFood(txtSearchFood.Text, (int)cbxSearchLoaiMon.SelectedValue);
+            }
         }
         private void cbxSearchLoaiMon_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -372,7 +379,7 @@ namespace QL_NhaHang.View
                 LoadListFood("");
                 return;
             }
-            dgvFood.DataSource = FoodDAO.Instance.GetListFood((int)cbxSearchLoaiMon.SelectedValue);
+            dgvFood.DataSource = FoodDAO.Instance.GetListFood(txtSearchFood.Text, (int)cbxSearchLoaiMon.SelectedValue);
         }
         private void dgvFood_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -390,7 +397,13 @@ namespace QL_NhaHang.View
                 }
             }
         }
+        private void dgvFood_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvFood.ClearSelection();
+        }
         #endregion 
+
+
 
         #region ===================== Event FooodCategory =======================
         private void btnAddFoodCategory_Click(object sender, EventArgs e)
@@ -463,7 +476,7 @@ namespace QL_NhaHang.View
                             errorDelete += "," + item;
                         }
                     }
-                    Hepler.ShowMessageDelete("mã", successDelete, errorDelete, "Vì đang có món ăn");
+                    Hepler.ShowMessageDelete(successDelete, errorDelete, "Vì đang có món ăn");
                     ResetFoodCategory();
                 }
             }
@@ -490,6 +503,10 @@ namespace QL_NhaHang.View
                 txtMaFoodCategory.Text = row.Cells[0].Value.ToString();
                 txtTenFoodCategory.Text = row.Cells[1].Value.ToString();
             }
+        }
+        private void dtgvFoodCategory_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dtgvFoodCategory.ClearSelection();
         }
         #endregion
 
@@ -582,7 +599,7 @@ namespace QL_NhaHang.View
                             errorDelete += "," + item;
                         }
                     }
-                    Hepler.ShowMessageDelete("tên đăng nhập", successDelete, errorDelete, "Vì đang đăng nhập");
+                    Hepler.ShowMessageDelete(successDelete, errorDelete, "Vì đang đăng nhập");
                     ResetAccount();
                 }
             }
@@ -659,9 +676,13 @@ namespace QL_NhaHang.View
                 cbTypeAccount.SelectedValue = (int)row.Cells[5].Value;
             }
         }
-
+        private void dtgvAccount_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dtgvAccount.ClearSelection();
+        }
         #endregion
 
         #endregion
+
     }
 }

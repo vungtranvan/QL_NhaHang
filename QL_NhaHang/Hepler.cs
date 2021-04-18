@@ -139,17 +139,17 @@ namespace QL_NhaHang
             pic.Image = Properties.Resources.eyeShow_32px;
         }
 
-        public static void ShowMessageDelete(string columnNameDelete, string successDelete, string errorDelete, string causeErro = null)
+        public static void ShowMessageDelete(string successDelete, string errorDelete, string causeErro = null)
         {
             if (!string.IsNullOrEmpty(successDelete))
             {
                 successDelete = ReplaceAtIndex(0, '<', successDelete);
-                MessageBox.Show(string.Format($"Đã xóa các hàng có {columnNameDelete} {successDelete}> thành công"), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format($"Đã xóa {successDelete}> thành công"), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (!string.IsNullOrEmpty(errorDelete))
             {
                 errorDelete = ReplaceAtIndex(0, '<', errorDelete);
-                MessageBox.Show(string.Format($"Không thể xóa các hàng có {columnNameDelete} {errorDelete}>. {causeErro}"), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(string.Format($"Không thể xóa {errorDelete}>. {causeErro}"), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

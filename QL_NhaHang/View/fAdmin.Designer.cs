@@ -232,6 +232,7 @@ namespace QL_NhaHang.View
             this.dgvFood.TabIndex = 12;
             this.dgvFood.TabStop = false;
             this.dgvFood.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvFood_CellFormatting);
+            this.dgvFood.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvFood_DataBindingComplete);
             this.dgvFood.Click += new System.EventHandler(this.dgvFood_Click);
             // 
             // Column3
@@ -668,6 +669,7 @@ namespace QL_NhaHang.View
             this.dtgvFoodCategory.Size = new System.Drawing.Size(1132, 269);
             this.dtgvFoodCategory.TabIndex = 8;
             this.dtgvFoodCategory.TabStop = false;
+            this.dtgvFoodCategory.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgvFoodCategory_DataBindingComplete);
             this.dtgvFoodCategory.Click += new System.EventHandler(this.dtgvFoodCategory_Click);
             // 
             // Column1
@@ -904,6 +906,7 @@ namespace QL_NhaHang.View
             this.dtgvAccount.TabIndex = 17;
             this.dtgvAccount.TabStop = false;
             this.dtgvAccount.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgvAccount_CellFormatting);
+            this.dtgvAccount.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgvAccount_DataBindingComplete);
             this.dtgvAccount.Click += new System.EventHandler(this.dtgvAccount_Click);
             // 
             // dataGridViewTextBoxColumn1

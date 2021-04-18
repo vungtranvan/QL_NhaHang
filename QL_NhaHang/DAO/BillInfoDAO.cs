@@ -20,6 +20,18 @@ namespace QL_NhaHang.DAO
         {
             return DataProvider.Instance.ExcuteQuery("EXEC GetListBillInfoByIdBill @IdBill", new object[] { idBill });
         }
+        public List<BillInfo> GetListBillInfoByIdBillToLst(int idBill)
+        {
+            List<BillInfo> data = new List<BillInfo>();
+            DataTable dataTable = DataProvider.Instance.ExcuteQuery("EXEC GetListBillInfoByIdBill @IdBill", new object[] { idBill });
+          
+            foreach (DataRow item in dataTable.Rows)
+            {
+                data.Add(new BillInfo(item));
+            }
+
+            return data;
+        }
         public bool Insert(int idBill, int idFood, int count)
         {
             int row = DataProvider.Instance.ExcuteNonQuerry("EXEC InsertBillInfo @IdBill , @IdFood , @Count", new object[] { idBill, idFood, count });

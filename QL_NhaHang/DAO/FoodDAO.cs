@@ -40,21 +40,22 @@ namespace QL_NhaHang.DAO
         {
             return DataProvider.Instance.ExcuteQuery("EXEC GetListFood @Name", new object[] { name });
         }
-        public DataTable GetListFood(int idFoodCate)
+       
+        public DataTable GetListFood(string name, int idFoodCate)
         {
-            return DataProvider.Instance.ExcuteQuery("EXEC GetFoodByIdFoodCategory @IdFoodCategory", new object[] { idFoodCate });
+            return DataProvider.Instance.ExcuteQuery("EXEC GetFoodByNameFoodAndIdFoodCat @Name , @IdFoodCategory", new object[] { name, idFoodCate });
         }
 
         public bool InsertFood(string name, int idCate, float price, string unit, byte[] imagefood, bool status)
         {
-            int result = DataProvider.Instance.ExcuteNonQuerry("EXEC InsertFood @Name , @IdCategory , @Price , @Unit , @ImageFood , @Status", new object[] { name, idCate, price, unit, imagefood , status });
+            int result = DataProvider.Instance.ExcuteNonQuerry("EXEC InsertFood @Name , @IdCategory , @Price , @Unit , @ImageFood , @Status", new object[] { name, idCate, price, unit, imagefood, status });
 
             return result > 0;
         }
 
         public bool UpdateFood(int idFood, string name, int idCate, float price, string unit, byte[] imagefood, bool status)
         {
-            int result = DataProvider.Instance.ExcuteNonQuerry("EXEC UpdateFood @Id , @Name , @IdCategory , @Price , @Unit , @ImageFood , @Status", new object[] { idFood, name, idCate, price, unit, imagefood , status});
+            int result = DataProvider.Instance.ExcuteNonQuerry("EXEC UpdateFood @Id , @Name , @IdCategory , @Price , @Unit , @ImageFood , @Status", new object[] { idFood, name, idCate, price, unit, imagefood, status });
 
             return result > 0;
         }

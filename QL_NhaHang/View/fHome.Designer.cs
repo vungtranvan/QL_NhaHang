@@ -519,6 +519,7 @@ namespace QL_NhaHang.View
             this.dtgvBill.TabIndex = 0;
             this.dtgvBill.TabStop = false;
             this.dtgvBill.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgvBill_CellFormatting);
+            this.dtgvBill.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtgvBill_DataBindingComplete);
             this.dtgvBill.Click += new System.EventHandler(this.dtgvBill_Click);
             // 
             // Column1

@@ -46,10 +46,12 @@ namespace QL_NhaHang.View
         private void LoadListBill()
         {
             dtgvBill.DataSource = BillDAO.Instance.GetListBillUnCheckOut();
+            dtgvBill.ClearSelection();
         }
         private void LoadBillInfo(int idBill)
         {
             dtgvBillInfo.DataSource = BillInfoDAO.Instance.GetListBillInfoByIdBill(idBill);
+            dtgvBillInfo.ClearSelection();
         }
         private void LoadImageFood()
         {
@@ -99,6 +101,26 @@ namespace QL_NhaHang.View
             checkInput = Hepler.CheckInputNotNull(txtTenBan, txtErrorTenBan, checkInput);
             return checkInput;
         }
+        public void ChangerInputTotolPrice()
+        {
+            if (dtgvBillInfo.CurrentRow != null)
+            {
+                float toTalPrice = 0;
+                for (int i = 0; i < dtgvBillInfo.Rows.Count; ++i)
+                {
+                    toTalPrice += (float)Convert.ToDouble(dtgvBillInfo.Rows[i].Cells[5].Value);
+                }
+                float finalTotalPrice = toTalPrice - (toTalPrice * (int)nmDiscount.Value) / 100;
+                CultureInfo culture = new CultureInfo("vi-VN");
+                txtTongTien.Text = toTalPrice.ToString("c0", culture);
+                txtThanhTien.Text = finalTotalPrice.ToString("c0", culture);
+            }
+            if ((int)dtgvBillInfo.RowCount == 0)
+            {
+                txtThanhTien.Text = "0 ₫";
+                txtTongTien.Text = "0 ₫";
+            }
+        }
         #endregion
 
 
@@ -113,18 +135,7 @@ namespace QL_NhaHang.View
                 txtTenBan.Text = rowBill.Cells[1].Value.ToString();
                 nmQuantityTable.Value = (int)rowBill.Cells[2].Value;
                 LoadBillInfo(idBill);
-                if (dtgvBillInfo.CurrentRow != null)
-                {
-                    float toTalPrice = 0;
-                    for (int i = 0; i < dtgvBillInfo.Rows.Count; ++i)
-                    {
-                        toTalPrice += (float)Convert.ToDouble(dtgvBillInfo.Rows[i].Cells[5].Value);
-                    }
-                    float finalTotalPrice = toTalPrice - (toTalPrice * (int)nmDiscount.Value) / 100;
-                    CultureInfo culture = new CultureInfo("vi-VN");
-                    txtTongTien.Text = toTalPrice.ToString("c0", culture);
-                    txtThanhTien.Text = finalTotalPrice.ToString("c0", culture);
-                }
+                ChangerInputTotolPrice();
             }
         }
         private void dtgvBillInfo_Click(object sender, EventArgs e)
@@ -181,7 +192,7 @@ namespace QL_NhaHang.View
                         }
 
                     }
-                    Hepler.ShowMessageDelete("mã", successDelete, errorDelete);
+                    Hepler.ShowMessageDelete(successDelete, errorDelete);
                     ResetData();
                 }
             }
@@ -204,18 +215,19 @@ namespace QL_NhaHang.View
                 {
                     BillDAO.Instance.Insert(tablename, numberTable);
                     BillInfoDAO.Instance.Insert(BillDAO.Instance.GetMaxBillId(), idFood, count);
-                    // LoadBillInfo(BillDAO.Instance.GetMaxBillId());
+                    ResetData();
                     MessageBox.Show("Thêm hóa đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     int idBill = Int32.Parse(txtMaHoaDon.Text);
                     BillInfoDAO.Instance.Insert(idBill, idFood, count);
-                    // LoadBillInfo(idBill);
+                    LoadBillInfo(idBill);
+                    ChangerInputTotolPrice();
                     MessageBox.Show("Thêm món thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                ResetData();
+
             }
         }
         private void btnEditBill_Click(object sender, EventArgs e)
@@ -249,20 +261,27 @@ namespace QL_NhaHang.View
             {
                 if (MessageBox.Show("Bạn có chắc chắn muốn thanh toán không", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    float totalPrice = (float)Convert.ToDouble(txtThanhTien.Text.Split(' ')[0].Replace(".", ""));
-                    if (BillDAO.Instance.CheckOut(Int32.Parse(idHoaDon), (int)nmDiscount.Value, totalPrice))
+                    if (BillInfoDAO.Instance.GetListBillInfoByIdBillToLst(Int32.Parse(idHoaDon)).Count > 0)
                     {
-                        ResetData();
-                        MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        float totalPrice = (float)Convert.ToDouble(txtThanhTien.Text.Split(' ')[0].Replace(".", ""));
+                        if (BillDAO.Instance.CheckOut(Int32.Parse(idHoaDon), (int)nmDiscount.Value, totalPrice))
+                        {
+                            ResetData();
+                            MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        fReportToPrint f = new fReportToPrint();
-                        f.ReportViewName = "BillDetail";
-                        f.IdBill = Int32.Parse(idHoaDon);
-                        f.ShowDialog();
+                            fReportToPrint f = new fReportToPrint();
+                            f.ReportViewName = "BillDetail";
+                            f.IdBill = Int32.Parse(idHoaDon);
+                            f.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thanh toán thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Thanh toán thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ko thể thanh toán vì hóa đơn này chưa có món ăn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -289,6 +308,12 @@ namespace QL_NhaHang.View
                     e.Value = "Chưa Thanh Toán";
             }
         }
+
+        private void dtgvBill_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dtgvBill.ClearSelection();
+        }
+
         #endregion
     }
 }

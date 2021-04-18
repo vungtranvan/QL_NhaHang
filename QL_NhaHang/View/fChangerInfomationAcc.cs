@@ -140,6 +140,7 @@ namespace QL_NhaHang.View
                         updateAcc(this, new AccountEvent(accSuccessUpdate));
                     }
                     ResetForm(accSuccessUpdate);
+                    this.Close();
                 }
                 else
                 {

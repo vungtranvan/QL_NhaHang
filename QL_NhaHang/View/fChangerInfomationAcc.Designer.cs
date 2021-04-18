@@ -127,11 +127,11 @@ namespace QL_NhaHang.View
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(423, 262);
+            this.label24.Location = new System.Drawing.Point(414, 262);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(104, 16);
+            this.label24.Size = new System.Drawing.Size(115, 16);
             this.label24.TabIndex = 1;
-            this.label24.Text = "Nhập lại mk mới";
+            this.label24.Text = "Nhập lại mật khẩu";
             // 
             // txtUserName
             // 
@@ -226,7 +226,7 @@ namespace QL_NhaHang.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(423, 120);
+            this.label2.Location = new System.Drawing.Point(414, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 1;
@@ -275,6 +275,7 @@ namespace QL_NhaHang.View
             // 
             // txtPhone
             // 
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(138, 182);
             this.txtPhone.Multiline = true;
             this.txtPhone.Name = "txtPhone";
@@ -283,6 +284,7 @@ namespace QL_NhaHang.View
             // 
             // txtAddress
             // 
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(532, 182);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
@@ -293,7 +295,7 @@ namespace QL_NhaHang.View
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(423, 190);
+            this.label17.Location = new System.Drawing.Point(414, 190);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(48, 16);
             this.label17.TabIndex = 1;

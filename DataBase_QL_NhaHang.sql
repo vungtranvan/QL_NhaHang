@@ -181,19 +181,29 @@ SELECT *, FoodCategory.Name as NameCategory FROM Food,FoodCategory WHERE Food.Id
 END
 GO
 
+CREATE PROC GetFoodByNameFoodAndIdFoodCat
+@Name nvarchar(100),
+@IdFoodCategory int
+AS
+BEGIN 
+  IF(@Name = '' OR @Name IS NULL)
+   BEGIN
+    SELECT *, FoodCategory.Name as NameCategory FROM Food,FoodCategory WHERE Food.IdCategory = FoodCategory.Id AND FoodCategory.Id = @IdFoodCategory
+   END
+  ELSE
+  BEGIN
+     SELECT *, FoodCategory.Name as NameCategory FROM Food,FoodCategory WHERE Food.IdCategory = FoodCategory.Id AND FoodCategory.Id = @IdFoodCategory
+	 AND (dbo.fuConvertToUnsign1(Food.Name) LiKE '%'+dbo.fuConvertToUnsign1(@Name)+'%' 
+	 OR dbo.fuConvertToUnsign1(FoodCategory.Name) LiKE '%'+dbo.fuConvertToUnsign1(@Name)+'%')
+   END
+END
+GO
+
 CREATE PROC GetFoodById
 @Id int
 AS
 BEGIN 
 SELECT *, FoodCategory.Name as NameCategory FROM Food,FoodCategory WHERE Food.IdCategory = FoodCategory.Id AND Food.Id = @Id
-END
-GO
-
-CREATE PROC GetFoodByIdFoodCategory
-@IdFoodCategory int
-AS
-BEGIN 
-SELECT *, FoodCategory.Name as NameCategory FROM Food,FoodCategory WHERE Food.IdCategory = FoodCategory.Id AND FoodCategory.Id = @IdFoodCategory
 END
 GO
 
